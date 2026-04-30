@@ -48,7 +48,7 @@ def test_notify_payload_is_well_formed_for_pass() -> None:
     v = g.evaluate([])
     payload = notify_payload(v, "run-42")
     assert payload["attachments"][0]["color"] == "good"
-    assert any("Critical" == f["title"] for f in payload["attachments"][0]["fields"])
+    assert any(f["title"] == "Critical" for f in payload["attachments"][0]["fields"])
 
 
 def test_notify_payload_is_red_on_block() -> None:
